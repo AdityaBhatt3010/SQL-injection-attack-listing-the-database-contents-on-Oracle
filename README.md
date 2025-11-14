@@ -4,8 +4,6 @@
 
 If you think Oracle-based SQLi is rare, trust me — it’s alive, breathing, and waiting for someone to poke it. This PortSwigger lab hides a classic UNION-based SQL injection inside the *product category filter*, and our job is to pull out the users table, extract creds, and break in as the administrator.
 
-Below is the clean, practical PoC — mapped step-by-step with screenshots stored under SQLi_/ as 1.png, 2.png … just like a proper GitHub repo.
-
 ![Cover](SQLi__/Cover.jpeg)
 
 ---
